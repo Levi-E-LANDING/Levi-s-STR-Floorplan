@@ -96,7 +96,7 @@ Express **all x/y coordinates as decimal values between 0.0 and 1.0**, where:
 
 6. **sqft** — include this field **only** if the square footage is explicitly stated in the filename or visible somewhere in the floorplan image. Omit the field entirely if it is not provided.
 
-7. **Accuracy** — trace all routes along corridors and hallways, never through walls. Respect real room boundaries visible in the image.
+7. **Walls — CRITICAL** — routes must **never cross a wall under any circumstance**. Before placing each point, verify it is inside an open corridor, doorway, or room — not inside a wall segment. If the only path between two points would cross a wall, add intermediate points to route around it through a doorway or hallway. A route that cuts through a wall is invalid and must be corrected. When in doubt, add more points to stay clearly within open space.
 
 8. **No overlapping points** — no two consecutive points in any route or arrow may share the same coordinates. Every successive point must differ by at least 0.01 in either x or y. If two points would be identical or closer than 0.01, offset one of them by 0.01 to separate them.
 
